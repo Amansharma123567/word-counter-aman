@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+        
+        body {
+            padding: 0rem 10.0rem;
+            background-color: crimson;
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: blue;
+            color: wheat;
+            padding: 1.0rem;
+            margin: .0rem;
+        }
+        
+        #textbox {
+            width: 99.3%;
+            border-color: turquoise;
+        }
+        
+        p {
+            text-align: center;
+            background-color: blue;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            padding: 1.rem;
+            margin: .0rem;
+        }
+        
+        @media(max-width:99.8rem) {
+            html {
+                font-size: 55%;
+            }
+        }
+        
+        @media(max-width:76.8rem) {
+            html {
+                font-size: 45%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1> word and character counter</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0 </span>words and
+        <span id="char">0</span> character
+    </p>
+    <script>
+        let textbox = document.getElementById("textbox");
+        textbox.addEventListener('input', function() {
+            var text = this.value;
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+            text = text.trim();
+            let words = text.split(" ");
+            let cleanList = words.filter(function(elm) {
+                return elm != "";
+            });
+            document.getElementById("word").innerHTML = cleanList.length;
+        });
+    </script>
+</body>
+
+</html>
